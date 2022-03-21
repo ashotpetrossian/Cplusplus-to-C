@@ -1,0 +1,50 @@
+class A
+{
+private :
+    int pria = 44 ;
+    void priaf ( ) { }
+protected :
+    int proa = 77 ;
+    void proaf ( ) { }
+public :
+    int puba = 88 ;
+    void pubaf ( int a ) { std::cout<<"A::pubaf()\n"; }
+    virtual void v_pubaf ( ) { std::cout<<"A::v_pubaf()\n"; }
+};
+
+class B : public A
+{
+private :
+    int prib = 1 ;
+    void pribf ( ) { }
+protected :
+    int prob = 7 ;
+    void probf ( ) { }
+public :
+    int pubb = 8 ;
+    void pubbf ( int b ) { }
+    void v_pubaf ( ) { std::cout<<"B::v_pubaf()\n"; }
+};
+
+class C : public B
+{
+private :
+    int pric = 121 ;
+    void pricf ( ) { }
+protected :
+    int proc = 877 ;
+    void procf ( ) { }
+public :
+    int pubc = 998 ;
+    void pubcf ( ) { }
+};
+
+int main ()
+{
+    A obja ;
+    B objb ;
+    A* p_obja = new B() ;
+    p_obja->v_pubaf( ) ;
+    B* p_objb = &objb ;
+    p_objb->v_pubaf( ) ;
+}

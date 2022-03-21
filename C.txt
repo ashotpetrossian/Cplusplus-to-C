@@ -1,0 +1,44 @@
+
+struct A
+{
+   int pria = 44 ; 
+   int proa = 77 ; 
+   int puba = 88 ; 
+};
+
+struct B : public A
+{
+   int prib = 1 ; 
+   int prob = 7 ; 
+   int pubb = 8 ; 
+	A subobject;
+};
+
+struct C : public B
+{
+   int pric = 121 ; 
+   int proc = 877 ; 
+   int pubc = 998 ; 
+	B subobject;
+};
+   void priaf ( A* t  ) { } 
+   void proaf ( A* t  ) { } 
+   void pubaf ( A* t , int a ) { std::cout<<"A::pubaf()\n"; } 
+   void v_pubaf ( A* t  ) { std::cout<<"A::v_pubaf()\n"; } 
+   void pribf ( B* t  ) { } 
+   void probf ( B* t  ) { } 
+   void pubbf ( B* t , int b ) { } 
+   void v_pubaf ( B* t  ) { std::cout<<"B::v_pubaf()\n"; } 
+   void pricf ( C* t  ) { } 
+   void procf ( C* t  ) { } 
+   void pubcf ( C* t  ) { } 
+int main () 
+{ 
+   A obja ; 
+   B objb ; 
+   A* p_obja = new B() ; 
+   B B_tmp_obj ;
+   v_pubaf ( & B_tmp_obj  ) ; 
+   B* p_objb = &objb ; 
+   v_pubaf ( &objb  ) ; 
+} 
